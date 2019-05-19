@@ -12,25 +12,24 @@
 using namespace sf;
 
 Snake::Snake(){
-    w = h = 30;
     speed = 1;
     score = 0;
     direction = "right";
-    snakeimage.loadFromFile("/Users/daniilavtusko/Desktop/coding/SnakeGame/SnakeGame/Img/snakeTexture.jpg");
-    snakeTexture.loadFromImage(snakeimage);
-    snakeSprite.setTexture(snakeTexture);
+    snakePartImage.loadFromFile("/Users/daniilavtusko/Desktop/coding/SnakeGame/SnakeGame/Img/snakeTexture.jpg");
+    snakePartTexture.loadFromImage(snakePartImage);
+    snakePartSprite.setTexture(snakePartTexture);
 }
 void Snake::update(){
-    if (direction == "left"){ snakeSprite.setPosition(x-30, y); x += -30;}
-    else if (direction == "right"){ snakeSprite.setPosition(x+30, y); x += 30;}
-    else if (direction == "up"){ snakeSprite.setPosition(x, y-30); y += -30;}
-    else{ snakeSprite.setPosition(x, y+30); y += 30;}
+    if (direction == "left"){ snakePartSprite.setPosition(x-30, y); x += -30;}
+    else if (direction == "right"){ snakePartSprite.setPosition(x+30, y); x += 30;}
+    else if (direction == "up"){ snakePartSprite.setPosition(x, y-30); y += -30;}
+    else{ snakePartSprite.setPosition(x, y+30); y += 30;}
 }
 void Snake::setDirection(std::string dir){
     direction = dir;
 }
 Sprite Snake::getSprite(){
-    return snakeSprite;
+    return snakePartSprite;
 }
 float Snake::getX(){
     return x;

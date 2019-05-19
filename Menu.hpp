@@ -14,6 +14,6 @@
 #include <sstream>
 using namespace sf;
 
-void gameover(RenderWindow& window,int score);
-int mainMenu(RenderWindow& window);
+void gameover(RenderWindow& window,int score); //Меню после игры
+int mainMenu(RenderWindow& window); //Меню перед игрой
 #endif /* Menu_hpp */

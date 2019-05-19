@@ -8,8 +8,9 @@
 
 #include "Menu.hpp"
 
-
+//Меню после игры
 void gameover(RenderWindow& window,int score){
+    //Отрисовка надписи Your score и Exit
     Font font;
     std::ostringstream ScoreString;
     ScoreString << score;
@@ -19,15 +20,16 @@ void gameover(RenderWindow& window,int score){
     sc.setString("Your score: "+ScoreString.str());
     sc.setPosition(530, 200);
     exit.setPosition(680, 400);
+    
+    //Установка фона меню
     Texture textureBg;
     textureBg.loadFromFile("/Users/daniilavtusko/Desktop/coding/SnakeGame/SnakeGame/Img/textureBg.jpg");
     Sprite spriteBg(textureBg);
     bool isMenu = true;
     int menuNum = 0;
+    
+    //Наведение на надписи меню
     while (isMenu) {
-        
-        
-        
         if (IntRect(680, 400, 100, 100).contains(Mouse::getPosition(window))) { exit.setColor(Color::Blue); menuNum = 1; }
         if (!IntRect(680, 400, 100, 100).contains(Mouse::getPosition(window))) { exit.setColor(Color::White); }
         if (Mouse::isButtonPressed(Mouse::Left))
@@ -36,6 +38,7 @@ void gameover(RenderWindow& window,int score){
             
             
         }
+        //Отображение всех элементов меню
         window.clear();
         window.draw(spriteBg);
         window.draw(exit);
@@ -44,24 +47,23 @@ void gameover(RenderWindow& window,int score){
     }
     window.close();
 }
-
+//Меню перед игрой
 int mainMenu(RenderWindow& window){
+    //Отрисовка надписей Start game и Exit
     Font font;
     font.loadFromFile("/Users/daniilavtusko/Desktop/coding/SnakeGame/SnakeGame/fontGameOver.ttf");
     Text start("Start game",font,90);
     Text exit("Exit",font,80);
     start.setPosition(530, 200);
     exit.setPosition(680, 400);
+    //Установка фона меню
     Texture textureBg;
     textureBg.loadFromFile("/Users/daniilavtusko/Desktop/coding/SnakeGame/SnakeGame/Img/textureBg.jpg");
     Sprite spriteBg(textureBg);
     bool isMenu = true;
     int menuNum = 0;
     while (isMenu) {
-        
-        
-        
-        
+        //Обработка наведения на элементы меню
         if (IntRect(530, 200, 500, 100).contains(Mouse::getPosition(window))) { start.setColor(Color::Blue); menuNum = 2; }
         if (!IntRect(530, 200, 500, 100).contains(Mouse::getPosition(window))) { start.setColor(Color::White); }
         if (IntRect(680, 400, 100, 100).contains(Mouse::getPosition(window))) { exit.setColor(Color::Blue); menuNum = 1; }
@@ -73,6 +75,7 @@ int mainMenu(RenderWindow& window){
             
             
         }
+        //Отображение всех элементов на экран
         window.clear();
         window.draw(spriteBg);
         window.draw(exit);
