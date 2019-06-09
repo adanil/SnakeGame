@@ -1,2 +1,2 @@
 # SnakeGame
-Simple Snake game on C++ and SFML
+Simple Snake game on C++ and SFML.
